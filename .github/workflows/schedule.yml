@@ -1,0 +1,21 @@
+name: Dify Workflow Scheduler
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # 每天 UTC 00:00 运行
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  run-dify-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send request to Dify API
+        run: |
+             curl -X POST 'https://api.dify.ai/v1/workflows/run' \
+            --header 'Authorization: Bearer {app-KrRfWw9xFxGBm39OtPzJmCKs}' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{
+                "inputs": {},
+                "response_mode": "streaming",
+                "user": "abc-123"
+            }'
