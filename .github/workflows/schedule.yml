@@ -2,7 +2,7 @@ name: Dify Workflow Scheduler
 
 on:
   schedule:
-    - cron:  "55 11 * * *"  # 每天 UTC 19:40 运行
+    - cron:  "10 12 * * *"  # 每天 UTC 19:40 运行
   workflow_dispatch:  # 允许手动触发
 
 jobs:
